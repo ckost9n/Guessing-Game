@@ -54,14 +54,46 @@
 		3C00286A283ABC3600155250 /* Guessing Game */ = {
 			isa = PBXGroup;
 			children = (
+				3C00287F283AD0FA00155250 /* Application */,
+				3C002882283AD18100155250 /* Model */,
+				3C002880283AD10900155250 /* Controllers */,
+				3C002881283AD11E00155250 /* Resources */,
+			);
+			path = "Guessing Game";
+			sourceTree = "<group>";
+		};
+		3C00287F283AD0FA00155250 /* Application */ = {
+			isa = PBXGroup;
+			children = (
 				3C00286B283ABC3600155250 /* AppDelegate.swift */,
 				3C00286D283ABC3600155250 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		3C002880283AD10900155250 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				3C00286F283ABC3600155250 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3C002881283AD11E00155250 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				3C002874283ABC3A00155250 /* Assets.xcassets */,
 				3C002876283ABC3A00155250 /* LaunchScreen.storyboard */,
 				3C002879283ABC3A00155250 /* Info.plist */,
 			);
-			path = "Guessing Game";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3C002882283AD18100155250 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,7 +309,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RQYPG8XK25;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Guessing Game/Info.plist";
+				INFOPLIST_FILE = "Guessing Game/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -306,7 +338,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RQYPG8XK25;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Guessing Game/Info.plist";
+				INFOPLIST_FILE = "Guessing Game/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
