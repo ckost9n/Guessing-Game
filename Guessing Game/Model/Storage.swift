@@ -8,7 +8,11 @@
 import Foundation
 
 struct Storage {
-    var userNumer: Int
+    var userNumer = 50
+    var computerNumber = 50
     
-    static let initial = Storage(userNumer: 50)
+    var userTry = 0
+    var computerTry = 0
+    
+    static let initial = Storage()
 }

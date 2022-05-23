@@ -18,17 +18,27 @@ class UserGuessViewController: UIViewController {
     private let textFieldNumber = UITextField(text: "Your try")
     private let buttonGuess = UIButton(text: "Guess")
     private let textLabel = UILabel(text: "No, my number is less than yours")
+    
+    private let validator = Validator()
+    private var storage = Storage()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setDelegate()
         setupViews()
         setConstraints()
         
     }
     
+    private func setDelegate() {
+        textFieldNumber.delegate = self
+    }
+    
     private func setupViews() {
         buttonGuess.addTarget(self, action: #selector(buttonGuessTapped), for: .touchUpInside)
+        buttonGuess.isEnabled = false
+        buttonGuess.alpha = 0.5
         
         view.backgroundColor = .white
         stackViewLabel = UIStackView(
@@ -53,6 +63,33 @@ class UserGuessViewController: UIViewController {
         present(scoreVC, animated: true)
     }
 
+}
+
+// MARK: - UITextFieldDelegate
+
+extension UserGuessViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return validator.hasNumbers(text: string)
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text,
+              let number = Int(text) else { return }
+        buttonGuess.isEnabled = true
+        buttonGuess.alpha = 1
+        storage.computerNumber = number
+        print(storage.userNumer)
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
 }
 
 // MARK: - Set Constraints
