@@ -16,5 +16,5 @@ struct Storage {
     
     static let initial = Storage()
     
-     var new = 1
+     var new = 1213522
 }
