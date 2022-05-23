@@ -11,15 +11,13 @@ extension UITextField {
     
     convenience init(text: String) {
         self.init()
-//        self.backgroundColor = .specialBrown
         self.borderStyle = .roundedRect
-//        self.layer.cornerRadius = 20
 //        self.textColor = .specialGray
 //        self.font = .robotoBold20()
         self.placeholder = text
         self.textAlignment = .center
         self.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        self.keyboardType = .default
+        self.keyboardType = .phonePad
         self.clearButtonMode = .whileEditing
         self.returnKeyType = .done
         self.becomeFirstResponder()

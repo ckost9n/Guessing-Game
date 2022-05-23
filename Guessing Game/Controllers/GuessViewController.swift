@@ -26,7 +26,9 @@ class GuessViewController: UIViewController {
     
     private func setupViews() {
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        
+        button.isEnabled = false
+        button.alpha = 0.5
+
         view.backgroundColor = .white
         view.addSubview(textFieldNumber)
         view.addSubview(button)
@@ -39,7 +41,7 @@ class GuessViewController: UIViewController {
     @objc func buttonTapped() {
         print(#function)
     }
-
+    
 }
 
 // MARK: - UITextFieldDelegate
@@ -57,8 +59,15 @@ extension GuessViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text,
               let number = Int(text) else { return }
+        button.isEnabled = true
+        button.alpha = 1
         storage.userNumer = number
         print(storage.userNumer)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
 }
 
