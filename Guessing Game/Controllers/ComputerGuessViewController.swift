@@ -21,6 +21,8 @@ class ComputerGuessViewController: UIViewController {
     private let buttonEquals = UIButton(symbol: "=")
     private let buttonLess = UIButton(symbol: "<")
     
+    private let buttonSegue = UIButton(text: "Go to the next VC")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,8 @@ class ComputerGuessViewController: UIViewController {
         buttonMore.addTarget(self, action: #selector(buttonTapped(sender:)), for: .touchUpInside)
         buttonEquals.addTarget(self, action: #selector(buttonTapped(sender:)), for: .touchUpInside)
         buttonLess.addTarget(self, action: #selector(buttonTapped(sender:)), for: .touchUpInside)
+        
+        buttonSegue.addTarget(self, action: #selector(buttonSegueTapped), for: .touchUpInside)
         
         view.backgroundColor = .white
         stackViewLabel = UIStackView(
@@ -49,6 +53,7 @@ class ComputerGuessViewController: UIViewController {
             spacing: 10
         )
         view.addSubview(stackViewButton)
+        view.addSubview(buttonSegue)
     }
     
     @objc func buttonTapped(sender: UIButton) {
@@ -59,11 +64,14 @@ class ComputerGuessViewController: UIViewController {
         case buttonLess: print("Button Less Tapped")
         default: break
         }
-        
-//        let guessVC = GuessViewController()
-//        guessVC.modalPresentationStyle = .fullScreen
-//        guessVC.modalTransitionStyle = .coverVertical
-//        present(guessVC, animated: true)
+ 
+    }
+    
+    @objc func buttonSegueTapped() {
+        let userGuessVC = UserGuessViewController()
+        userGuessVC.modalPresentationStyle = .fullScreen
+        userGuessVC.modalTransitionStyle = .flipHorizontal
+        present(userGuessVC, animated: true)
     }
 
 }
@@ -91,6 +99,11 @@ extension ComputerGuessViewController {
         NSLayoutConstraint.activate([
             labelText.bottomAnchor.constraint(equalTo: stackViewButton.topAnchor, constant: -10),
             labelText.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            buttonSegue.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonSegue.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 }
