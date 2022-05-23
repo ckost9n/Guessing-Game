@@ -1,6 +1,6 @@
 # Guessing-Game
 
-Совместны проект с https://github.com/AndreyFackir
+Совместный проект с https://github.com/AndreyFackir
 
 Проект написан на UIKit без использования сториборада.
 
