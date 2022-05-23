@@ -47,7 +47,7 @@ extension MainViewController {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
