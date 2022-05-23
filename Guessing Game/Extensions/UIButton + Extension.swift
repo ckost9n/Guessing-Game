@@ -18,4 +18,15 @@ extension UIButton {
         self.layer.cornerRadius = 15
         self.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    convenience init(symbol: Character) {
+        self.init(type: .system)
+        self.backgroundColor = .orange
+        self.setTitle(String(symbol), for: .normal)
+        self.setTitleColor(.black, for: .normal)
+        self.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        self.widthAnchor.constraint(equalToConstant: 65).isActive = true
+        self.layer.cornerRadius = 15
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
 }

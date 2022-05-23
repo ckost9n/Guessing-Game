@@ -19,6 +19,9 @@
 		3C00288D283B568B00155250 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C00288C283B568B00155250 /* UITextField + Extension.swift */; };
 		3C00288F283B5ABE00155250 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C00288E283B5ABE00155250 /* Validator.swift */; };
 		3C002891283B5D8D00155250 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C002890283B5D8D00155250 /* Storage.swift */; };
+		3C002893283B756A00155250 /* ComputerGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C002892283B756A00155250 /* ComputerGuessViewController.swift */; };
+		3C002895283B757F00155250 /* UserGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C002894283B757F00155250 /* UserGuessViewController.swift */; };
+		3C002897283B758E00155250 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C002896283B758E00155250 /* ScoreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		3C00288C283B568B00155250 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 		3C00288E283B5ABE00155250 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		3C002890283B5D8D00155250 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		3C002892283B756A00155250 /* ComputerGuessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerGuessViewController.swift; sourceTree = "<group>"; };
+		3C002894283B757F00155250 /* UserGuessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGuessViewController.swift; sourceTree = "<group>"; };
+		3C002896283B758E00155250 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,9 @@
 			children = (
 				3C00286F283ABC3600155250 /* MainViewController.swift */,
 				3C00288A283B4CB900155250 /* GuessViewController.swift */,
+				3C002892283B756A00155250 /* ComputerGuessViewController.swift */,
+				3C002894283B757F00155250 /* UserGuessViewController.swift */,
+				3C002896283B758E00155250 /* ScoreViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -196,15 +205,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C002870283ABC3600155250 /* MainViewController.swift in Sources */,
+				3C002895283B757F00155250 /* UserGuessViewController.swift in Sources */,
 				3C00288F283B5ABE00155250 /* Validator.swift in Sources */,
 				3C002887283AD62700155250 /* UILabel + Extension.swift in Sources */,
 				3C00288B283B4CB900155250 /* GuessViewController.swift in Sources */,
+				3C002897283B758E00155250 /* ScoreViewController.swift in Sources */,
 				3C00286C283ABC3600155250 /* AppDelegate.swift in Sources */,
 				3C00286E283ABC3600155250 /* SceneDelegate.swift in Sources */,
 				3C002885283AD23F00155250 /* UIStackView + Extension.swift in Sources */,
 				3C002889283AD63700155250 /* UIButton + Extension.swift in Sources */,
 				3C00288D283B568B00155250 /* UITextField + Extension.swift in Sources */,
 				3C002891283B5D8D00155250 /* Storage.swift in Sources */,
+				3C002893283B756A00155250 /* ComputerGuessViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

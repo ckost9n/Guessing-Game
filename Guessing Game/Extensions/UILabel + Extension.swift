@@ -13,7 +13,7 @@ extension UILabel {
         
 //        self.font = .robotoMedium14()
 //        self.textColor = .specialLightBrown
-        
+        self.textAlignment = .center
         self.text = text
         self.translatesAutoresizingMaskIntoConstraints = false
     }

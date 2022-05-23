@@ -39,7 +39,10 @@ class GuessViewController: UIViewController {
     }
     
     @objc func buttonTapped() {
-        print(#function)
+        let computerGuessVC = ComputerGuessViewController()
+        computerGuessVC.modalPresentationStyle = .fullScreen
+        computerGuessVC.modalTransitionStyle = .coverVertical
+        present(computerGuessVC, animated: true)
     }
     
 }
