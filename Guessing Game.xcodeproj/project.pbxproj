@@ -15,6 +15,10 @@
 		3C002885283AD23F00155250 /* UIStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C002884283AD23F00155250 /* UIStackView + Extension.swift */; };
 		3C002887283AD62700155250 /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C002886283AD62700155250 /* UILabel + Extension.swift */; };
 		3C002889283AD63700155250 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C002888283AD63700155250 /* UIButton + Extension.swift */; };
+		3C00288B283B4CB900155250 /* GuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C00288A283B4CB900155250 /* GuessViewController.swift */; };
+		3C00288D283B568B00155250 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C00288C283B568B00155250 /* UITextField + Extension.swift */; };
+		3C00288F283B5ABE00155250 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C00288E283B5ABE00155250 /* Validator.swift */; };
+		3C002891283B5D8D00155250 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C002890283B5D8D00155250 /* Storage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		3C002884283AD23F00155250 /* UIStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extension.swift"; sourceTree = "<group>"; };
 		3C002886283AD62700155250 /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		3C002888283AD63700155250 /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
+		3C00288A283B4CB900155250 /* GuessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessViewController.swift; sourceTree = "<group>"; };
+		3C00288C283B568B00155250 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
+		3C00288E283B5ABE00155250 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		3C002890283B5D8D00155250 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				3C00286F283ABC3600155250 /* MainViewController.swift */,
+				3C00288A283B4CB900155250 /* GuessViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -99,6 +108,8 @@
 		3C002882283AD18100155250 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3C00288E283B5ABE00155250 /* Validator.swift */,
+				3C002890283B5D8D00155250 /* Storage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,6 +120,7 @@
 				3C002884283AD23F00155250 /* UIStackView + Extension.swift */,
 				3C002886283AD62700155250 /* UILabel + Extension.swift */,
 				3C002888283AD63700155250 /* UIButton + Extension.swift */,
+				3C00288C283B568B00155250 /* UITextField + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -184,11 +196,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C002870283ABC3600155250 /* MainViewController.swift in Sources */,
+				3C00288F283B5ABE00155250 /* Validator.swift in Sources */,
 				3C002887283AD62700155250 /* UILabel + Extension.swift in Sources */,
+				3C00288B283B4CB900155250 /* GuessViewController.swift in Sources */,
 				3C00286C283ABC3600155250 /* AppDelegate.swift in Sources */,
 				3C00286E283ABC3600155250 /* SceneDelegate.swift in Sources */,
 				3C002885283AD23F00155250 /* UIStackView + Extension.swift in Sources */,
 				3C002889283AD63700155250 /* UIButton + Extension.swift in Sources */,
+				3C00288D283B568B00155250 /* UITextField + Extension.swift in Sources */,
+				3C002891283B5D8D00155250 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

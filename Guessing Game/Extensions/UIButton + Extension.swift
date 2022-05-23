@@ -7,19 +7,15 @@
 
 import UIKit
 
-//extension UIButton {
-//    @objc convenience init(text: String, objcFunc: (() -> ())) {
-//        self.init(type: .system)
-//        self.backgroundColor = .blue
-//        self.addTarget(self, action: #selector(objcFunc), for: .touchUpInside)
-//        self.translatesAutoresizingMaskIntoConstraints = false
-//    }
-//}
-
-//private let clouseButton: UIButton = {
-//    let button = UIButton(type: .system)
-//    button.setBackgroundImage(UIImage(named: "Close Button"), for: .normal)
-//    button.translatesAutoresizingMaskIntoConstraints = false
-//    button.addTarget(self, action: #selector(clouseButtonTapped), for: .touchUpInside)
-//    return button
-//}()
+extension UIButton {
+    convenience init(text: String) {
+        self.init(type: .system)
+        self.backgroundColor = .blue
+        self.setTitle(text, for: .normal)
+        self.setTitleColor(.white, for: .normal)
+        self.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        self.layer.cornerRadius = 15
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+}
