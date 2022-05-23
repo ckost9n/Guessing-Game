@@ -15,4 +15,6 @@ struct Storage {
     var computerTry = 0
     
     static let initial = Storage()
+    
+    var num = 0
 }
