@@ -9,6 +9,10 @@ import UIKit
 
 class ComputerGuessViewController: UIViewController {
     
+    //var array = Storage.shared.array
+    
+    var random = Storage.shared.generateRandomNumber(array: Storage.shared.array )
+    
     private let labelTry = UILabel(text: "Try №1")
     private let labelComputer = UILabel(text: "Computer is guessing")
     private let labelNumber = UILabel(text: "You number is - 80 ?")
@@ -23,13 +27,22 @@ class ComputerGuessViewController: UIViewController {
     
     private let buttonSegue = UIButton(text: "Go to the next VC")
     
+    var storage = Storage.shared
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         setConstraints()
         
+        
+        labelNumber.text = "Your number is - \(random)?"
+        print(random)
+        
     }
+    
+    
     
     private func setupViews() {
         buttonMore.addTarget(self, action: #selector(buttonTapped(sender:)), for: .touchUpInside)
@@ -59,12 +72,16 @@ class ComputerGuessViewController: UIViewController {
     @objc func buttonTapped(sender: UIButton) {
         
         switch sender {
-        case buttonMore: print("Button More Tapped")
-        case buttonEquals: print("Button Equals Tapped")
-        case buttonLess: print("Button Less Tapped")
+            
+        case buttonMore:  print("Button Equals Tapped")
+        case buttonEquals:
+            print("Button Equals Tapped")
+            buttonSegueTapped()
+        case buttonLess:
+            print("Button Less Tapped")
         default: break
         }
- 
+        
     }
     
     @objc func buttonSegueTapped() {
@@ -73,7 +90,7 @@ class ComputerGuessViewController: UIViewController {
         userGuessVC.modalTransitionStyle = .flipHorizontal
         present(userGuessVC, animated: true)
     }
-
+    
 }
 
 // MARK: - Set Constraints
@@ -85,7 +102,7 @@ extension ComputerGuessViewController {
             stackViewLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             stackViewLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-
+        
         NSLayoutConstraint.activate([
             labelNumber.topAnchor.constraint(equalTo: stackViewLabel.bottomAnchor, constant: 60),
             labelNumber.centerXAnchor.constraint(equalTo: view.centerXAnchor)

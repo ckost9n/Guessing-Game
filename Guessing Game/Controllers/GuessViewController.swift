@@ -14,7 +14,8 @@ class GuessViewController: UIViewController {
     private let button = UIButton(text: "Enter the Number")
     
     private let validator = Validator()
-    private var storage = Storage.initial
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class GuessViewController: UIViewController {
         setDelegate()
         setupViews()
         setConstraints()
+        
     }
     
     private func setupViews() {
@@ -64,8 +66,9 @@ extension GuessViewController: UITextFieldDelegate {
               let number = Int(text) else { return }
         button.isEnabled = true
         button.alpha = 1
-        storage.userNumer = number
-        print(storage.userNumer)
+        
+        Storage.shared.userNumer = number
+        print(Storage.shared.userNumer)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

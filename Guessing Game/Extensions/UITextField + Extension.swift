@@ -17,9 +17,9 @@ extension UITextField {
         self.placeholder = text
         self.textAlignment = .center
         self.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        self.keyboardType = .phonePad
+        self.keyboardType = .numberPad
         self.clearButtonMode = .whileEditing
-        self.returnKeyType = .done
+        self.returnKeyType = .go
         self.becomeFirstResponder()
         self.translatesAutoresizingMaskIntoConstraints = false
     }

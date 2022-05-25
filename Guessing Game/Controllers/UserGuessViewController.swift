@@ -20,15 +20,16 @@ class UserGuessViewController: UIViewController {
     private let textLabel = UILabel(text: "No, my number is less than yours")
     
     private let validator = Validator()
-    private var storage = Storage()
-
+    private var storage = Storage.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setDelegate()
         setupViews()
         setConstraints()
-        
+        textLabel.isHidden = true
+        Storage.shared.computerNumber = Int.random(in: 0...100)
     }
     
     private func setDelegate() {
@@ -47,7 +48,7 @@ class UserGuessViewController: UIViewController {
             spacing: 20
         )
         view.addSubview(stackViewLabel)
-
+        
         staskViewGuess = UIStackView(
             arrangedSubViews: [textFieldNumber, buttonGuess, textLabel],
             axis: .vertical,
@@ -57,12 +58,26 @@ class UserGuessViewController: UIViewController {
     }
     
     @objc func buttonGuessTapped() {
-        let scoreVC = ScoreViewController()
-        scoreVC.modalPresentationStyle = .fullScreen
-        scoreVC.modalTransitionStyle = .flipHorizontal
-        present(scoreVC, animated: true)
+        
+        textLabel.isHidden = false
+        print(Storage.shared.computerNumber)
+        print(Storage.shared.userNumer)
+        
+        if Storage.shared.computerNumber > Storage.shared.userNumer {
+            textLabel.text =  "No, my number is bigger than you think"
+            textFieldNumber.text = ""
+            
+        } else if Storage.shared.computerNumber < Storage.shared.userNumer{
+            textLabel.text =  "No, my number is smaller than you think"
+            textFieldNumber.text = ""
+            
+        } else {
+            let scoreVC = ScoreViewController()
+            scoreVC.modalPresentationStyle = .fullScreen
+            scoreVC.modalTransitionStyle = .flipHorizontal
+            present(scoreVC, animated: true)
+        }
     }
-
 }
 
 // MARK: - UITextFieldDelegate
@@ -70,26 +85,40 @@ class UserGuessViewController: UIViewController {
 extension UserGuessViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         textField.resignFirstResponder()
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return validator.hasNumbers(text: string)
     }
-
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = textField.text,
               let number = Int(text) else { return }
         buttonGuess.isEnabled = true
         buttonGuess.alpha = 1
-        storage.computerNumber = number
-        print(storage.userNumer)
+        Storage.shared.userNumer = number
+        print(Storage.shared.userNumer)
+        
+        
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
+    
+   
+    
+    //    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+    //        if textField.text != "" {
+    //            return true
+    //        } else {
+    //            textField.placeholder = "Type the number"
+    //            return false
+    //        }
+    //    }
 }
 
 // MARK: - Set Constraints
@@ -101,12 +130,12 @@ extension UserGuessViewController {
             stackViewLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
             stackViewLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-
+        
         NSLayoutConstraint.activate([
             staskViewGuess.topAnchor.constraint(equalTo: stackViewLabel.bottomAnchor, constant: 60),
             staskViewGuess.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-
-       
+        
+        
     }
 }

@@ -8,13 +8,22 @@
 import Foundation
 
 struct Storage {
+    
+   
+    
     var userNumer = 50
     var computerNumber = 50
     
     var userTry = 0
     var computerTry = 0
     
-    static let initial = Storage()
+    var compNum = Int.random(in: 0...100)
     
-     var new = 1213522
+    static var shared = Storage()
+    
+    var array = [Int](0...100)
+    
+    func generateRandomNumber(array:[Int]) -> Int {
+        Int.random(in: 0...array.count)
+    }
 }
