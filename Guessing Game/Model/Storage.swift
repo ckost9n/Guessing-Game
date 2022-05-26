@@ -9,21 +9,36 @@ import Foundation
 
 struct Storage {
     
-   
+    var start = 0
+    var end = 100
     
     var userNumer = 50
     var computerNumber = 50
-    
     var userTry = 0
     var computerTry = 0
     
-    var compNum = Int.random(in: 0...100)
-    
     static var shared = Storage()
     
-    var array = [Int](0...100)
+    var arrayOfNumbers = [Int](0...100)
     
-    func generateRandomNumber(array:[Int]) -> Int {
-        Int.random(in: 0...array.count)
+    mutating func generateRandomNumber() -> Int {
+        guard let number = arrayOfNumbers.randomElement() else {
+            return 0
+        }
+        return number
     }
+      
+    mutating func generateArray(_ number: Int) -> [Int]{
+        
+        if number > userNumer {
+            self.end = number - 1
+            arrayOfNumbers = [Int](start...end)
+            return arrayOfNumbers
+        } else {
+            self.start = number + 1
+            arrayOfNumbers = [Int](start...end)
+            return arrayOfNumbers
+        }
+    }
+      
 }

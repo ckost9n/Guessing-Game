@@ -9,9 +9,10 @@ import UIKit
 
 class ComputerGuessViewController: UIViewController {
     
-    //var array = Storage.shared.array
     
-    var random = Storage.shared.generateRandomNumber(array: Storage.shared.array )
+    var massive = Storage.shared.arrayOfNumbers
+    var random = Storage.shared.generateRandomNumber()
+    
     
     private let labelTry = UILabel(text: "Try №1")
     private let labelComputer = UILabel(text: "Computer is guessing")
@@ -36,13 +37,10 @@ class ComputerGuessViewController: UIViewController {
         setupViews()
         setConstraints()
         
-        
         labelNumber.text = "Your number is - \(random)?"
         print(random)
         
     }
-    
-    
     
     private func setupViews() {
         buttonMore.addTarget(self, action: #selector(buttonTapped(sender:)), for: .touchUpInside)
@@ -73,12 +71,28 @@ class ComputerGuessViewController: UIViewController {
         
         switch sender {
             
-        case buttonMore:  print("Button Equals Tapped")
+        case buttonMore:
+            
+            massive = Storage.shared.generateArray(random)
+            random = Storage.shared.generateRandomNumber()
+            labelNumber.text = "Your number is - \( random)?"
+            
+            print(random)
+            print(massive)
+            
         case buttonEquals:
             print("Button Equals Tapped")
             buttonSegueTapped()
+            
         case buttonLess:
-            print("Button Less Tapped")
+            massive = Storage.shared.generateArray(random)
+            random = Storage.shared.generateRandomNumber()
+            labelNumber.text = "Your number is - \( random)?"
+            
+            print(random)
+            print(massive)
+            
+            
         default: break
         }
         
