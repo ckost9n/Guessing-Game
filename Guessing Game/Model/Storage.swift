@@ -21,6 +21,7 @@ struct Storage {
     
     var arrayOfNumbers = [Int](0...100)
     
+    
     mutating func generateRandomNumber() -> Int {
         guard let number = arrayOfNumbers.randomElement() else {
             return 0
@@ -28,16 +29,21 @@ struct Storage {
         return number
     }
       
-    mutating func generateArray(_ number: Int) -> [Int]{
+    mutating func CcomputerGuessNumber(_ array: [Int], target:  Int) -> Int{
         
-        if number > userNumer {
-            self.end = number - 1
+        var middleIndex = (start + end) / 2
+        
+        if middleIndex > target {
+            self.end = middleIndex - 1
             arrayOfNumbers = [Int](start...end)
-            return arrayOfNumbers
+            return middleIndex
+            
+        } else if middleIndex < target  {
+            self.start = middleIndex + 1
+            arrayOfNumbers = [Int](start...end)
+            return middleIndex
         } else {
-            self.start = number + 1
-            arrayOfNumbers = [Int](start...end)
-            return arrayOfNumbers
+            return middleIndex
         }
     }
       

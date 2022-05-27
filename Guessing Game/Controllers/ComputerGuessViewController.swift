@@ -11,7 +11,8 @@ class ComputerGuessViewController: UIViewController {
     
     
     var massive = Storage.shared.arrayOfNumbers
-    var random = Storage.shared.generateRandomNumber()
+    var random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
+    
     
     
     private let labelTry = UILabel(text: "Try №1")
@@ -73,25 +74,20 @@ class ComputerGuessViewController: UIViewController {
             
         case buttonMore:
             
-            massive = Storage.shared.generateArray(random)
-            random = Storage.shared.generateRandomNumber()
+            print(Storage.shared.arrayOfNumbers)
+            random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
             labelNumber.text = "Your number is - \( random)?"
             
-            print(random)
-            print(massive)
             
         case buttonEquals:
             print("Button Equals Tapped")
             buttonSegueTapped()
             
         case buttonLess:
-            massive = Storage.shared.generateArray(random)
-            random = Storage.shared.generateRandomNumber()
+
+            print(Storage.shared.arrayOfNumbers)
+            random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
             labelNumber.text = "Your number is - \( random)?"
-            
-            print(random)
-            print(massive)
-            
             
         default: break
         }
