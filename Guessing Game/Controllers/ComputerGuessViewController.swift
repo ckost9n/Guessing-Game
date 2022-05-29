@@ -11,9 +11,7 @@ class ComputerGuessViewController: UIViewController {
     
     
     var massive = Storage.shared.arrayOfNumbers
-    var random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
-    
-    
+//    var random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
     
     private let labelTry = UILabel(text: "Try №1")
     private let labelComputer = UILabel(text: "Computer is guessing")
@@ -38,8 +36,8 @@ class ComputerGuessViewController: UIViewController {
         setupViews()
         setConstraints()
         
-        labelNumber.text = "Your number is - \(random)?"
-        print(random)
+        labelNumber.text = "Your number is - \(storage.middle)?"
+//        print(random)
         
     }
     
@@ -74,9 +72,14 @@ class ComputerGuessViewController: UIViewController {
             
         case buttonMore:
             
-            print(Storage.shared.arrayOfNumbers)
-            random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
-            labelNumber.text = "Your number is - \( random)?"
+            
+//            random = storage.CcomputerGuessNumber([Int](flagMin...flagMax), target: )
+//            random = storage.CcomputerGuessNumber([Int](0), target: storage.userNumer)
+            
+            storage.start = storage.middle
+//            print(Storage.shared.arrayOfNumbers)
+//            random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
+            labelNumber.text = "Your number is - \( storage.middle)?"
             
             Storage.shared.computerTry += 1
             labelTry.text = "Try № \(Storage.shared.computerTry)"
@@ -91,9 +94,10 @@ class ComputerGuessViewController: UIViewController {
             Storage.shared.computerTry += 1
             labelTry.text = "Try № \(Storage.shared.computerTry)"
             
-            print(Storage.shared.arrayOfNumbers)
-            random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
-            labelNumber.text = "Your number is - \( random)?"
+            storage.end = storage.middle
+//            print(Storage.shared.arrayOfNumbers)
+//            random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
+            labelNumber.text = "Your number is - \( storage.middle)?"
             
         default: break
         }

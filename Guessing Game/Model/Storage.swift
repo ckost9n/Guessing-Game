@@ -29,24 +29,31 @@ struct Storage {
         }
         return number
     }
-      
-    mutating func CcomputerGuessNumber(_ array: [Int], target:  Int) -> Int{
-        
-        var middleIndex = (start + end) / 2
-        
-        if middleIndex > target {
-            self.end = middleIndex - 1
-            arrayOfNumbers = [Int](start...end)
-            return middleIndex
-            
-        } else if middleIndex < target  {
-            self.start = middleIndex + 1
-            arrayOfNumbers = [Int](start...end)
-            return middleIndex
-        } else {
-            return middleIndex
-        }
+    
+    var middle: Int {
+        let array = [Int](start...end)
+        let middleIndex = (array.first! + array.last!) / 2
+        print(middleIndex)
+        return middleIndex
     }
+      
+//    mutating func CcomputerGuessNumber(_ array: [Int], target:  Int) -> Int{
+//
+//        var middleIndex = (start + end) / 2
+//
+//        if middleIndex > target {
+//            self.end = middleIndex - 1
+//            arrayOfNumbers = [Int](start...end)
+//            return middleIndex
+//            
+//        } else if middleIndex < target  {
+//            self.start = middleIndex + 1
+//            arrayOfNumbers = [Int](start...end)
+//            return middleIndex
+//        } else {
+//            return middleIndex
+//        }
+//    }
       
     func compareResult(label: UILabel) {
         
