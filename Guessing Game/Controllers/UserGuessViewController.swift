@@ -30,6 +30,7 @@ class UserGuessViewController: UIViewController {
         setConstraints()
         textLabel.isHidden = true
         Storage.shared.computerNumber = Int.random(in: 0...100)
+        textLabel.numberOfLines = 0
     }
     
     private func setDelegate() {
@@ -59,6 +60,8 @@ class UserGuessViewController: UIViewController {
     
     @objc func buttonGuessTapped() {
         
+        textFieldNumber.endEditing(true)
+        
         textLabel.isHidden = false
         print(Storage.shared.computerNumber)
         print(Storage.shared.userNumer)
@@ -72,10 +75,22 @@ class UserGuessViewController: UIViewController {
             textFieldNumber.text = ""
             
         } else {
-            let scoreVC = ScoreViewController()
-            scoreVC.modalPresentationStyle = .fullScreen
-            scoreVC.modalTransitionStyle = .flipHorizontal
-            present(scoreVC, animated: true)
+            
+            let alert = UIAlertController(title: "Congrats!", message: "You got it", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "See Results", style: .default) { _ in
+                let scoreVC = ScoreViewController()
+                scoreVC.modalPresentationStyle = .fullScreen
+                scoreVC.modalTransitionStyle = .flipHorizontal
+                self.present(scoreVC, animated: true)
+            }
+            
+            alert.addAction(action)
+            
+            present(alert, animated: true)
+            
+            
+           
         }
     }
 }
