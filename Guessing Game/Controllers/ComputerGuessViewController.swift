@@ -78,13 +78,19 @@ class ComputerGuessViewController: UIViewController {
             random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
             labelNumber.text = "Your number is - \( random)?"
             
+            Storage.shared.computerTry += 1
+            labelTry.text = "Try № \(Storage.shared.computerTry)"
+            
+            
             
         case buttonEquals:
             print("Button Equals Tapped")
             buttonSegueTapped()
             
         case buttonLess:
-
+            Storage.shared.computerTry += 1
+            labelTry.text = "Try № \(Storage.shared.computerTry)"
+            
             print(Storage.shared.arrayOfNumbers)
             random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
             labelNumber.text = "Your number is - \( random)?"

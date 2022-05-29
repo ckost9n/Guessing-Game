@@ -69,6 +69,17 @@ extension GuessViewController: UITextFieldDelegate {
         
         Storage.shared.userNumer = number
         print(Storage.shared.userNumer)
+        
+        if number < 0 || number > 100{
+            let alert = UIAlertController(title: "OOPS!", message: "The number must be from 0 to 100", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            
+            alert.addAction(action)
+            present(alert, animated: true)
+            button.isEnabled = false
+            button.alpha = 0.5
+        }
+       
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

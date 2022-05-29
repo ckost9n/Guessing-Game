@@ -22,6 +22,9 @@ class ScoreViewController: UIViewController {
         
         setupViews()
         setConstraints()
+        userScoreLabel.text = "Yours tries count: \(Storage.shared.userTry )"
+        computerScoreLabel.text = "Computer's tries count: \(Storage.shared.computerTry )"
+        Storage.shared.compareResult(label: winLabel)
         
     }
     

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Storage {
     
@@ -47,4 +48,14 @@ struct Storage {
         }
     }
       
+    func compareResult(label: UILabel) {
+        
+        if computerTry > userTry {
+            label.text = "You Win"
+        } else if computerTry < userTry {
+            label.text = "Computer Win"
+        } else {
+            label.text = "It's Draw"
+        }
+    }
 }
