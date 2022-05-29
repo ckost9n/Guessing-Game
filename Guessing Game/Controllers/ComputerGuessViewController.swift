@@ -11,7 +11,7 @@ class ComputerGuessViewController: UIViewController {
     
     
     var massive = Storage.shared.arrayOfNumbers
-//    var random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
+    
     
     private let labelTry = UILabel(text: "Try №1")
     private let labelComputer = UILabel(text: "Computer is guessing")
@@ -36,7 +36,7 @@ class ComputerGuessViewController: UIViewController {
         setConstraints()
         
         labelNumber.text = "Your number is - \(storage.middle)?"
-//        print(random)
+        //        print(random)
         
     }
     
@@ -71,13 +71,6 @@ class ComputerGuessViewController: UIViewController {
             
         case buttonMore:
             
-            
-//            random = storage.CcomputerGuessNumber([Int](flagMin...flagMax), target: )
-//            random = storage.CcomputerGuessNumber([Int](0), target: storage.userNumer)
-            
-            
-            
-            
             storage.start = storage.middle
             
             if storage.start == storage.end {
@@ -86,13 +79,10 @@ class ComputerGuessViewController: UIViewController {
                 }
             }
             
-//            print(Storage.shared.arrayOfNumbers)
-//            random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
             labelNumber.text = "Your number is - \( storage.middle)?"
             
             Storage.shared.computerTry += 1
             labelTry.text = "Try № \(Storage.shared.computerTry)"
-            
             
             
         case buttonEquals:
@@ -110,8 +100,7 @@ class ComputerGuessViewController: UIViewController {
                     alertPresent(number: storage.userNumer)
                 }
             }
-//            print(Storage.shared.arrayOfNumbers)
-//            random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
+            
             labelNumber.text = "Your number is - \( storage.middle)?"
             
         default: break
@@ -133,10 +122,10 @@ extension ComputerGuessViewController {
     private func alertPresent(number: Int) {
         let alert = UIAlertController(
             title: "Mistake or Frau",
-        message: "You made a mistake or you were deceived! The hidden number is: \(number)",
+            message: "You made a mistake or you were deceived! The hidden number is: \(number)",
             preferredStyle: .alert
         )
-
+        
         let okAction = UIAlertAction(
             title: "Go Main VC",
             style: .cancel,
@@ -146,7 +135,7 @@ extension ComputerGuessViewController {
                 mainVC.modalPresentationStyle = .fullScreen
                 self.present(mainVC, animated: true)
             })
-
+        
         alert.addAction(okAction)
         present(alert, animated: true)
     }
