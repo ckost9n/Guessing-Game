@@ -22,8 +22,8 @@ class ScoreViewController: UIViewController {
         
         setupViews()
         setConstraints()
-        userScoreLabel.text = "Yours tries count: \(Storage.shared.userTry )"
-        computerScoreLabel.text = "Computer's tries count: \(Storage.shared.computerTry )"
+        userScoreLabel.text = "Yours tries count: \(Storage.shared.userTry - 1 )"
+        computerScoreLabel.text = "Computer's tries count: \(Storage.shared.computerTry - 1)"
         Storage.shared.compareResult(label: winLabel)
         
     }
@@ -51,6 +51,8 @@ class ScoreViewController: UIViewController {
         mainVC.modalTransitionStyle = .partialCurl
         mainVC.modalPresentationStyle = .fullScreen
         present(mainVC, animated: true)
+        Storage.shared.userTry = 1
+        Storage.shared.computerTry = 1
     }
     
 }

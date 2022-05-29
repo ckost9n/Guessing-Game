@@ -15,8 +15,8 @@ struct Storage {
     
     var userNumer = 50
     var computerNumber = 50
-    var userTry = 0
-    var computerTry = 0
+    var userTry = 1
+    var computerTry = 1
     
     static var shared = Storage()
     

@@ -61,7 +61,7 @@ class UserGuessViewController: UIViewController {
     @objc func buttonGuessTapped() {
         
         textFieldNumber.endEditing(true)
-        Storage.shared.userTry += 1
+       
         labelTry.text =  "Try №\(Storage.shared.userTry)"
         textLabel.isHidden = false
         print(Storage.shared.computerNumber)
@@ -70,10 +70,12 @@ class UserGuessViewController: UIViewController {
         if Storage.shared.computerNumber > Storage.shared.userNumer {
             textLabel.text =  "No, my number is bigger than you think"
             textFieldNumber.text = ""
+            Storage.shared.userTry += 1
             
         } else if Storage.shared.computerNumber < Storage.shared.userNumer{
             textLabel.text =  "No, my number is smaller than you think"
             textFieldNumber.text = ""
+            Storage.shared.userTry += 1
             
         } else {
             
