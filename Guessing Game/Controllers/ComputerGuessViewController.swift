@@ -29,7 +29,6 @@ class ComputerGuessViewController: UIViewController {
     
     var storage = Storage.shared
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -82,7 +81,9 @@ class ComputerGuessViewController: UIViewController {
             storage.start = storage.middle
             
             if storage.start == storage.end {
-                print("Error!!!!!\nAlert!!!!")
+                if storage.start != storage.userNumer {
+                    alertPresent(number: storage.userNumer)
+                }
             }
             
 //            print(Storage.shared.arrayOfNumbers)
@@ -105,7 +106,9 @@ class ComputerGuessViewController: UIViewController {
             storage.end = storage.middle
             
             if storage.start == storage.end {
-                print("Error!!!!!\nAlert!!!!")
+                if storage.start != storage.userNumer {
+                    alertPresent(number: storage.userNumer)
+                }
             }
 //            print(Storage.shared.arrayOfNumbers)
 //            random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
@@ -121,6 +124,31 @@ class ComputerGuessViewController: UIViewController {
         userGuessVC.modalPresentationStyle = .fullScreen
         userGuessVC.modalTransitionStyle = .flipHorizontal
         present(userGuessVC, animated: true)
+    }
+    
+}
+
+extension ComputerGuessViewController {
+    
+    private func alertPresent(number: Int) {
+        let alert = UIAlertController(
+            title: "Mistake or Frau",
+        message: "You made a mistake or you were deceived! The hidden number is: \(number)",
+            preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(
+            title: "Go Main VC",
+            style: .cancel,
+            handler:{ (action) in
+                let mainVC = MainViewController()
+                mainVC.modalTransitionStyle = .crossDissolve
+                mainVC.modalPresentationStyle = .fullScreen
+                self.present(mainVC, animated: true)
+            })
+
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
     
 }
