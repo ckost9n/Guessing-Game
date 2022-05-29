@@ -31,9 +31,10 @@ struct Storage {
     }
     
     var middle: Int {
+        var middleIndex: Int
+        guard start != (end - 1) else { return start + 1 }
         let array = [Int](start...end)
-        let middleIndex = (array.first! + array.last!) / 2
-        print(middleIndex)
+        middleIndex = (array.first! + array.last!) / 2
         return middleIndex
     }
       

@@ -76,7 +76,15 @@ class ComputerGuessViewController: UIViewController {
 //            random = storage.CcomputerGuessNumber([Int](flagMin...flagMax), target: )
 //            random = storage.CcomputerGuessNumber([Int](0), target: storage.userNumer)
             
+            
+            
+            
             storage.start = storage.middle
+            
+            if storage.start == storage.end {
+                print("Error!!!!!\nAlert!!!!")
+            }
+            
 //            print(Storage.shared.arrayOfNumbers)
 //            random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
             labelNumber.text = "Your number is - \( storage.middle)?"
@@ -95,6 +103,10 @@ class ComputerGuessViewController: UIViewController {
             labelTry.text = "Try № \(Storage.shared.computerTry)"
             
             storage.end = storage.middle
+            
+            if storage.start == storage.end {
+                print("Error!!!!!\nAlert!!!!")
+            }
 //            print(Storage.shared.arrayOfNumbers)
 //            random = Storage.shared.CcomputerGuessNumber(Storage.shared.arrayOfNumbers, target: Storage.shared.userNumer)
             labelNumber.text = "Your number is - \( storage.middle)?"
